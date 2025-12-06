@@ -3,111 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VL STORE - Tienda de Ropa</title>
+    <title>Niko | Desarrollador Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    
+    <style>
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fbff;
+            color: #1a1a2e;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        header {
+            background: linear-gradient(135deg, #0077b6 0%, #00a8e8 100%);
+            color: white;
+            padding: 60px 24px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 20px;
+        }
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid #e0e8f0;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #0077b6;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .about p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 16px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .skill-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e8f0;
+        }
+        .skill-item strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+        .skill-bar-bg {
+            background: #e8f4fc;
+            border-radius: 4px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #0077b6;
+        }
+        .timeline-item .date {
+            font-weight: 600;
+            color: #0077b6;
+            min-width: 90px;
+        }
+        .timeline-item .desc {
+            color: #333;
+        }
+        .resources-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+        .resources-list a {
+            display: block;
+            padding: 16px 20px;
+            background: white;
+            border: 1px solid #e0e8f0;
+            border-radius: 8px;
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+        }
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e0e8f0;
+        }
+        .contact-info p {
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .contact-info a {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        footer {
+            background: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 30px 24px;
+            margin-top: 40px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500;
+        }
+        footer p {
+            margin-top: 12px;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        .project-button {
+            background-color: #0077b6;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .project-button .link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        /* Tema oscuro: agrega al final de styles.css */
+
+body,
+header,
+.skill-item,
+.timeline-item,
+.resources-list a,
+.contact-info,
+footer {
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+/* Clase que activa el tema oscuro */
+body.oscuro {
+    background-color: #0f1724;   /* fondo general oscuro */
+    color: #e6eef8;              /* texto claro */
+}
+
+/* header oscuro */
+body.oscuro header {
+    background: linear-gradient(135deg,#04293a 0%,#08304a 100%);
+    color: #e6eef8;
+}
+
+/* cards y contenedores */
+body.oscuro .skill-item,
+body.oscuro .timeline-item,
+body.oscuro .contact-info,
+body.oscuro .resources-list a {
+    background: #0b1220;
+    border-color: #213445;
+    color: #dbe9f8;
+}
+
+/* barras de habilidades */
+body.oscuro .skill-bar-bg {
+    background: #07202b;
+}
+body.oscuro .skill-bar-fill {
+    box-shadow: none;
+}
+
+/* enlaces */
+body.oscuro a {
+    color: #7ec8ff;
+}
+body.oscuro a:hover {
+    color: #aee6ff;
+}
+
+/* botones */
+body.oscuro .project-button {
+    background-color: #144b63;
+    color: #e6eef8;
+    border: 1px solid #1b5f74;
+}
+body.oscuro .project-button .link {
+    color: #e6eef8;
+}
+
+/* footer */
+body.oscuro footer {
+    background: #071928;
+    color: #9fcfe8;
+}
+
+/* pequeñas mejoras de accesibilidad/contraste */
+body.oscuro .profile-img {
+    border-color: #0b202b;
+}
+body.oscuro h2 {
+    color: #4fd1ff;
+}
+body.oscuro p {
+    color: #cbd5e1;
+}
+body.oscuro strong {
+    color: #e6eef8;
+}
+
+/* animaciones suaves al cambiar tema */
+html { transition: background-color .25s ease, color .25s ease; }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">VL STORE</div>
-            <ul class="nav-menu">
-                <li><a href="#hero" class="nav-link">Inicio</a></li>
-                <li><a href="#conjuntos" class="nav-link">Conjuntos</a></li>
-                <li><a href="#poleras" class="nav-link">Poleras</a></li>
-                <li><a href="#shorts" class="nav-link">Shorts</a></li>
-                <li><a href="#accesorios" class="nav-link">Accesorios</a></li>
-                <li><a href="#calzado" class="nav-link">Calzado</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="cart-btn" onclick="toggleCart()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
-                </button>
-                <button class="mobile-toggle" onclick="toggleMenu()">
-                    <div class="hamburger"></div>
-                </button>
+    <header>
+        <div class="container">
+            <img src="images/caballo.png" alt="Foto de perfil" class="profile-img">
+            <h1>Niko</h1>
+            <p>Desarrollador Web Frontend</p>
+            <button id="tema-btn" class="project-button" type="button">Tema oscuro</button>
+        </div>
+    </header>
+    <main class="container">
+        <section class="about">
+            <h2>Sobre mí</h2>
+            <p>Soy un desarrollador web apasionado por crear sitios modernos y funcionales. Me especializo en tecnologías frontend como HTML, CSS y JavaScript, con un enfoque en código limpio y experiencias de usuario intuitivas.</p>
+            <p>Actualmente continúo ampliando mis conocimientos a través de plataformas como freeCodeCamp, donde he obtenido certificaciones en diseño web responsivo y JavaScript.</p>
+        </section>
+
+        <section>
+            <h2>Habilidades técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <strong>HTML</strong>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" style="width: 90%; background: #0077b6;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <strong>CSS</strong>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" style="width: 80%; background: #00a8e8;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <strong>JavaScript</strong>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" style="width: 60%; background: #48cae4;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <strong>Diseño Responsivo</strong>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" style="width: 85%; background: #0077b6;"></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1>Nueva Colección</h1>
-            <p>Encuentra tu estilo perfecto</p>
-            <button class="btn-primary">Baja para explorar</button>
-        </div>
-    </section>
-
-    <!-- Products by Category -->
-    <section class="products-section" id="conjuntos">
-        <h2 class="section-title">Conjuntos</h2>
-        <div class="products-grid" id="conjuntosGrid"></div>
-    </section>
-
-    <section class="products-section" id="poleras">
-        <h2 class="section-title">Poleras</h2>
-        <div class="products-grid" id="polerasGrid"></div>
-    </section>
-
-    <section class="products-section" id="shorts">
-        <h2 class="section-title">Shorts</h2>
-        <div class="products-grid" id="shortsGrid"></div>
-    </section>
-
-    <section class="products-section" id="accesorios">
-        <h2 class="section-title">Accesorios</h2>
-        <div class="products-grid" id="accesoriosGrid"></div>
-    </section>
-
-    <section class="products-section" id="calzado">
-        <h2 class="section-title">Calzado</h2>
-        <div class="products-grid" id="calzadoGrid"></div>
-    </section>
-
-    <!-- Cart Overlay -->
-    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h2>Carrito (<span id="cartItemCount">0</span>)</h2>
-            <button class="close-cart" onclick="toggleCart()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <div class="cart-empty">Tu carrito está vacío</div>
-        </div>
-        <div class="cart-footer" id="cartFooter" style="display: none;">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">$0</span>
+        </section>
+        <section>
+            <h2>Proyectos</h2>
+            <button class="project-button"><a class="link" href="https://nikitoo07.github.io/tareafisica/" target="_blank">Proyecto Escolar De Física</a></button>
+            <button class="project-button"><a class="link" href="https://nikitoo07.github.io/sol/" target="_blank">Proyecto Escolar De Fisica 2 (sol)</a></button>
+            <button class="project-button"><a class="link" href="https://nikitoo07.github.io/QuizGo-/" target="_blank">Proyecto QuizGo(incompleto)</a></button>
+        </section>
+        <section>
+            <h2>Demo</h2>
+            <button class="project-button"><a class="link" href="https://nikitoo07.github.io/demo/" target="_blank">Tienda de ropa</a></button>
+        </section>
+        <section>
+            <h2>Formación y recursos</h2>
+            <div class="resources-list">
+                <a href="https://www.freecodecamp.org/nikoo0" target="_blank" rel="noopener">Mi perfil en freeCodeCamp</a>
+                <a href="https://www.freecodecamp.org/" target="_blank" rel="noopener">freeCodeCamp</a>
             </div>
-            <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                </svg>
-                WhatsApp
-            </button>
-            <button class="contact-btn instagram-btn" onclick="contactInstagram()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-                Instagram
-            </button>
-        </div>
-    </div>
+        </section>
+        <script src="script.js"></script>
+    </main>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>© 2025 Niko. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
